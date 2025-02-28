@@ -1,4 +1,5 @@
 type: string
 enum: [metric, imperial]
+nullable: true
 description: Measurement system used by the user.
 example: "metric"
