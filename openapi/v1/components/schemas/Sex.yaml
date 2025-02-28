@@ -1,4 +1,5 @@
 type: string
 enum: [male, female, other, prefer_not_to_say]
+nullable: true
 description: User's biological sex or gender preference.
 example: "male"

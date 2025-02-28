@@ -2,7 +2,6 @@ type: object
 properties:
   sex:
     $ref: "../schemas/Sex.yaml"
-    nullable: true
   weight:
     type: number
     format: double
