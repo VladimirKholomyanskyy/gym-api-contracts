@@ -1,0 +1,18 @@
+type: object
+properties:
+  sex:
+    $ref: "../schemas/Sex.yaml"
+  weight:
+    type: number
+    format: float
+    description: Users weight.
+  height:
+    type: number
+    format: float
+    description: Users height.
+  birthday:
+    type: string
+    format: date
+  avatarUrl:
+    type: string
+    description: Avatar image url

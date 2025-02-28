@@ -5,6 +5,12 @@ info:
   description: A comprehensive API for managing gym users, workouts, and sessions.
 
 tags:
+  - name: Profile
+    description: Operations related to user profile
+
+  - name: Settings
+    description: Operations related to user settings
+
   - name: Workouts
     description: Operations related to workouts
 
@@ -24,6 +30,11 @@ tags:
     description: Operations related to scheduling workouts
 
 paths:
+  /api/v1/profiles/me:
+    $ref: "./paths/user/profiles.yaml"
+  /api/v1/profiles/me/settings:
+    $ref: "./paths/user/settings.yaml"
+
   /api/v1/exercises:
     $ref: "./paths/exercises/exercises.yaml"
   /api/v1/exercises/{exerciseId}:

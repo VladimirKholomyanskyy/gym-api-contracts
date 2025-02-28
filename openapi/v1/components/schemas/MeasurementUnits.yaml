@@ -1,0 +1,4 @@
+type: string
+enum: [metric, imperial]
+description: Measurement system used by the user.
+example: "metric"

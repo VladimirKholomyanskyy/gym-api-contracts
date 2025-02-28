@@ -1,0 +1,24 @@
+type: object
+required:
+  - id
+properties:
+  id:
+    type: string
+    format: uuid
+    description: Unique identifier for the user.
+  sex:
+    $ref: "../schemas/Sex.yaml"
+  weight:
+    type: number
+    format: float
+    description: Users weight.
+  height:
+    type: number
+    format: float
+    description: Users height.
+  birthday:
+    type: string
+    format: date
+  avatarUrl:
+    type: string
+    description: Avatar image url

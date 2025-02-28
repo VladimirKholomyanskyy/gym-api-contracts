@@ -1,0 +1,72 @@
+get:
+  summary: Get the authenticated user's settings
+  operationId: getSettings
+  tags:
+    - Settings
+  responses:
+    "200":
+      description: User settings retrieved successfully
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/Settings.yaml"
+    "401":
+      description: Unauthorized. Authentication is required.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "404":
+      description: Not found. No settings found for the authenticated user.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "500":
+      description: Internal server error.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+patch:
+  summary: Update the authenticated user's settings
+  operationId: updateSettings
+  tags:
+    - Settings
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../components/requests/PatchSettingsRequest.yaml"
+  responses:
+    "200":
+      description: User settings updated successfully
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/Settings.yaml"
+    "400":
+      description: Invalid request payload
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "401":
+      description: Unauthorized. Authentication is required.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "404":
+      description: Not found. No settings found for the authenticated user.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "500":
+      description: Internal server error.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"

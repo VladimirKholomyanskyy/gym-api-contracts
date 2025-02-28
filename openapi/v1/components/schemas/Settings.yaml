@@ -1,0 +1,23 @@
+type: object
+required:
+  - id
+properties:
+  id:
+    type: string
+    format: uuid
+    description: Unique identifier for the settings record.
+    example: "550e8400-e29b-41d4-a716-446655440000"
+  language:
+    type: string
+    description: User's preferred language (ISO 639-1 format).
+    example: "en"
+  timezone:
+    type: string
+    description: User's timezone (IANA format, e.g., 'America/New_York').
+    example: "America/New_York"
+  measurementUnits:
+    $ref: "../schemas/MeasurementUnits.yaml"
+  notificationsEnabled:
+    type: boolean
+    description: Whether the user has enabled notifications.
+    example: true

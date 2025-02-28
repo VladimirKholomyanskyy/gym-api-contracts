@@ -1,0 +1,68 @@
+get:
+  summary: Get the authenticated user's profile
+  operationId: getProfile
+  tags:
+    - Profile
+  responses:
+    "200":
+      description: User profile retrieved successfully
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/Profile.yaml"
+    "401":
+      description: Unauthorized. Authentication is required.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "404":
+      description: Not found. No profile found for the authenticated user.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "500":
+      description: Internal server error.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+
+patch:
+  summary: Update the authenticated user's profile
+  operationId: updateProfile
+  tags:
+    - Profile
+  requestBody:
+    description: Updated training program details.
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../components/requests/PatchProfileRequest.yaml"
+  responses:
+    "200":
+      description: User profile updated successfully
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/Profile.yaml"
+    "400":
+      description: Invalid request payload
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "401":
+      description: Unauthorized. Authentication is required.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "500":
+      description: Internal server error.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
