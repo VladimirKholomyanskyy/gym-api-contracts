@@ -13,4 +13,4 @@ properties:
           format: date
         totalWeight:
           type: number
-          format: float
+          format: double

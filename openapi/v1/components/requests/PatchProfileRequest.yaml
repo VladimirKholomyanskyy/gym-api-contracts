@@ -4,11 +4,11 @@ properties:
     $ref: "../schemas/Sex.yaml"
   weight:
     type: number
-    format: float
+    format: double
     description: Users weight.
   height:
     type: number
-    format: float
+    format: double
     description: Users height.
   birthday:
     type: string
