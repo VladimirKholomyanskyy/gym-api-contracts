@@ -1,0 +1,106 @@
+get:
+  summary: Get a scheduled workout by ID
+  operationId: getScheduledWorkout
+  tags:
+    - Scheduled Workouts
+  parameters:
+    - $ref: "../../components/parameters/ScheduledWorkoutIdPath.yaml"
+  responses:
+    "200":
+      description: Scheduled workout details
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/ScheduledWorkout.yaml"
+    "401":
+      description: Unauthorized - User authentication required
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "403":
+      description: Forbidden - User does not have access to this resource
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "404":
+      description: Scheduled workout not found
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+
+patch:
+  summary: Update a scheduled workout
+  operationId: updateScheduledWorkout
+  tags:
+    - Scheduled Workouts
+  parameters:
+    - $ref: "../../components/parameters/ScheduledWorkoutIdPath.yaml"
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../components/requests/PatchScheduledWorkoutRequest.yaml"
+  responses:
+    "200":
+      description: Workout updated successfully
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/ScheduledWorkout.yaml"
+    "400":
+      description: Invalid request payload
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "401":
+      description: Unauthorized - User authentication required
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "403":
+      description: Forbidden - User does not have permission to update this workout
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "404":
+      description: Scheduled workout not found
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+
+delete:
+  summary: Delete a scheduled workout
+  operationId: deleteScheduledWorkout
+  tags:
+    - Scheduled Workouts
+  parameters:
+    - $ref: "../../components/parameters/ScheduledWorkoutIdPath.yaml"
+  responses:
+    "204":
+      description: Workout deleted successfully
+    "401":
+      description: Unauthorized - User authentication required
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "403":
+      description: Forbidden - User does not have permission to delete this workout
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "404":
+      description: Scheduled workout not found
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"

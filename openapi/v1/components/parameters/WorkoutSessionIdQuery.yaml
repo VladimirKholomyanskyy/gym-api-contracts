@@ -1,0 +1,7 @@
+name: workoutSessionId
+in: query
+description: The unique identifier for workout session
+required: false
+schema:
+  type: string
+  format: uuid

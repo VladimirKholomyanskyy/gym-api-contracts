@@ -1,0 +1,27 @@
+type: object
+required:
+  - id
+  - name
+  - primaryMuscle
+properties:
+  id:
+    type: string
+    format: uuid
+    description: Unique identifier for the exercise.
+  name:
+    type: string
+    description: Name of the exercise.
+  primaryMuscle:
+    type: string
+    description: Primary muscle targeted by the exercise.
+  secondaryMuscle:
+    type: array
+    items:
+      type: string
+    description: List of secondary muscles targeted.
+  equipment:
+    type: string
+    description: Equipment required for the exercise.
+  description:
+    type: string
+    description: Detailed description of the exercise.

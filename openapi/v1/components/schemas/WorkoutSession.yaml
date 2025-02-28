@@ -1,0 +1,57 @@
+type: object
+required:
+  - id
+  - startedAt
+  - workoutSnapshot
+properties:
+  id:
+    type: string
+    format: uuid
+    description: Unique identifier for the workout session.
+  startedAt:
+    type: string
+    format: date-time
+    description: Timestamp when the session started.
+  completedAt:
+    type: string
+    format: date-time
+    nullable: true
+    description: Timestamp when the session was completed.
+  workoutSnapshot:
+    type: object
+    required:
+      - id
+      - name
+      - createdAt
+      - updatedAt
+      - trainingProgramId
+    properties:
+      id:
+        type: string
+        format: uuid
+        description: Unique identifier for the workout snapshot.
+      name:
+        type: string
+        description: Name of the workout.
+      createdAt:
+        type: string
+        format: date-time
+        description: Timestamp when the snapshot was created.
+      deletedAt:
+        type: string
+        format: date-time
+        nullable: true
+        description: Timestamp when the snapshot was deleted.
+      updatedAt:
+        type: string
+        format: date-time
+        description: Timestamp when the snapshot was last updated.
+      trainingProgramId:
+        type: string
+        format: uuid
+        description: Identifier for the associated training program.
+      workoutExercises:
+        type: array
+        items:
+          $ref: "./WorkoutExercise.yaml"
+        description: List of exercises included in the workout.

@@ -1,0 +1,82 @@
+post:
+  summary: Start a new workout session
+  tags:
+    - Workout Sessions
+  operationId: addWorkoutSession
+  requestBody:
+    description: Details required to create a new workout session.
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../components/requests/CreateWorkoutSessionRequest.yaml"
+  responses:
+    "201":
+      description: Workout session started successfully.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/WorkoutSession.yaml"
+    "400":
+      description: Bad request. Ensure all required fields are provided and correctly formatted.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "401":
+      description: Unauthorized. Authentication is required.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "403":
+      description: Forbidden. You do not have permission to start a workout session.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "500":
+      description: Internal server error.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+get:
+  summary: Retrieve a paginated list of workout sessions
+  tags:
+    - Workout Sessions
+  operationId: listWorkoutSessions
+  parameters:
+    - $ref: "../../components/parameters/Pagination.yaml#/page"
+    - $ref: "../../components/parameters/Pagination.yaml#/pageSize"
+  responses:
+    "200":
+      description: Successfully retrieved a paginated list of workout sessions.
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: "../../components/schemas/PaginatedResponse.yaml"
+              - properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: "../../components/schemas/WorkoutSession.yaml"
+    "401":
+      description: Unauthorized. Authentication is required.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "403":
+      description: Forbidden. You do not have permission to view workout sessions.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "500":
+      description: Internal server error.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"

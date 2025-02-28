@@ -1,0 +1,110 @@
+post:
+  summary: Add a workout to a training program
+  tags:
+    - Workouts
+  operationId: addWorkoutToProgram
+  parameters:
+    - $ref: "../../components/parameters/TrainingProgramIdPath.yaml"
+  requestBody:
+    description: Details of the workout to be added.
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../components/requests/CreateWorkoutRequest.yaml"
+  responses:
+    "201":
+      description: Workout added successfully.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/Workout.yaml"
+    "400":
+      description: Bad request. Invalid workout details provided.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "401":
+      description: Unauthorized. Authentication is required.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "403":
+      description: Forbidden. You do not have permission to modify this training program.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "404":
+      description: Not found. The specified training program does not exist.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "409":
+      description: Conflict. A workout with the same details already exists in this training program.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "500":
+      description: Internal server error.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+
+get:
+  summary: Retrieve workouts for a training program
+  tags:
+    - Workouts
+  operationId: listWorkoutsForProgram
+  parameters:
+    - $ref: "../../components/parameters/TrainingProgramIdPath.yaml"
+    - $ref: "../../components/parameters/Pagination.yaml#/page"
+    - $ref: "../../components/parameters/Pagination.yaml#/pageSize"
+  responses:
+    "200":
+      description: Successfully retrieved the list of workouts.
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: "../../components/schemas/PaginatedResponse.yaml"
+              - properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: "../../components/schemas/Workout.yaml"
+    "400":
+      description: Bad request. Invalid pagination parameters.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "401":
+      description: Unauthorized. Authentication is required.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "403":
+      description: Forbidden. You do not have permission to view this training program's workouts.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "404":
+      description: Not found. The specified training program does not exist.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "500":
+      description: Internal server error.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"

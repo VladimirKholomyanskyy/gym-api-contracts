@@ -1,0 +1,44 @@
+get:
+  summary: Retrieve a specific workout session by ID
+  tags:
+    - Workout Sessions
+  operationId: getWorkoutSession
+  parameters:
+    - $ref: "../../components/parameters/WorkoutSessionIdPath.yaml"
+  responses:
+    "200":
+      description: Successfully retrieved the workout session.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/WorkoutSession.yaml"
+    "400":
+      description: Bad request. The provided workout session ID is not a valid UUID.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "401":
+      description: Unauthorized. Authentication is required.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "403":
+      description: Forbidden. You do not have permission to view this workout session.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "404":
+      description: Not found. No workout session exists with the given ID.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "500":
+      description: Internal server error.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"

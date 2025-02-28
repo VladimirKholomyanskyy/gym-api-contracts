@@ -1,0 +1,92 @@
+patch:
+  summary: Update a workout exercise
+  tags:
+    - Workout Exercises
+  operationId: updateWorkoutExercise
+  parameters:
+    - $ref: "../../components/parameters/WorkoutExerciseIdPath.yaml"
+  requestBody:
+    description: Updated data for the workout exercise.
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../components/requests/PatchWorkoutExerciseRequest.yaml"
+  responses:
+    "200":
+      description: Workout exercise updated successfully.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/WorkoutExercise.yaml"
+    "400":
+      description: Bad request. Invalid update details.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "401":
+      description: Unauthorized. Authentication is required.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "403":
+      description: Forbidden. You do not have permission to modify this workout exercise.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "404":
+      description: Not found. The specified workout exercise does not exist.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "500":
+      description: Internal server error.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+
+delete:
+  summary: Delete a workout exercise
+  tags:
+    - Workout Exercises
+  operationId: deleteWorkoutExercise
+  parameters:
+    - $ref: "../../components/parameters/WorkoutExerciseIdPath.yaml"
+  responses:
+    "204":
+      description: Workout exercise deleted successfully.
+    "400":
+      description: Bad request. Invalid workout exercise ID format.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "401":
+      description: Unauthorized. Authentication is required.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "403":
+      description: Forbidden. You do not have permission to delete this workout exercise.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "404":
+      description: Not found. The specified workout exercise does not exist.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "500":
+      description: Internal server error.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"

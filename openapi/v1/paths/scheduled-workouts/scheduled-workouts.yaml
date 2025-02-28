@@ -1,0 +1,88 @@
+post:
+  summary: Schedule a workout
+  operationId: scheduleWorkout
+  tags:
+    - Scheduled Workouts
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../components/requests/CreateScheduledWorkoutRequest.yaml"
+  responses:
+    "201":
+      description: Workout scheduled successfully
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/ScheduledWorkout.yaml"
+    "400":
+      description: Invalid request payload
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "401":
+      description: Unauthorized - User authentication required
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "403":
+      description: Forbidden - User does not have permission to schedule a workout
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "409":
+      description: Conflict - Workout already scheduled for the given time
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+
+get:
+  summary: Get all scheduled workouts for the authenticated user
+  operationId: getScheduledWorkouts
+  tags:
+    - Scheduled Workouts
+  parameters:
+    - name: startDate
+      in: query
+      required: false
+      schema:
+        type: string
+        format: date
+    - name: endDate
+      in: query
+      required: false
+      schema:
+        type: string
+        format: date
+  responses:
+    "200":
+      description: List of scheduled workouts within the specified date range
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "../../components/schemas/ScheduledWorkout.yaml"
+    "400":
+      description: Invalid date format or range
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "401":
+      description: Unauthorized - User authentication required
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "403":
+      description: Forbidden - User does not have access to this resource
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"

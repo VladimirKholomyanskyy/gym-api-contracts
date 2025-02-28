@@ -1,0 +1,22 @@
+type: object
+properties:
+  errorCode:
+    $ref: "../schemas/ErrorCodes.yaml"
+  status:
+    type: integer
+  message:
+    type: string
+  details:
+    type: array
+    items:
+      type: object
+      properties:
+        field:
+          type: string
+        issue:
+          type: string
+
+required:
+  - errorCode
+  - status
+  - message

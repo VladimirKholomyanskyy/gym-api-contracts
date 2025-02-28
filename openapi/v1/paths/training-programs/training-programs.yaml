@@ -1,0 +1,82 @@
+post:
+  summary: Create a new training program
+  tags:
+    - Training Programs
+  operationId: createTrainingProgram
+  requestBody:
+    description: Training program details
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../components/requests/CreateTrainingProgramRequest.yaml"
+  responses:
+    "201":
+      description: Training program created successfully.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/TrainingProgram.yaml"
+    "400":
+      description: Bad request. Ensure all required fields are provided and correctly formatted.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "401":
+      description: Unauthorized. Authentication is required.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "403":
+      description: Forbidden. You do not have permission to create a training program.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "500":
+      description: Internal server error.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+get:
+  summary: Retrieve a paginated list of training programs
+  tags:
+    - Training Programs
+  operationId: listTrainingPrograms
+  parameters:
+    - $ref: "../../components/parameters/Pagination.yaml#/page"
+    - $ref: "../../components/parameters/Pagination.yaml#/pageSize"
+  responses:
+    "200":
+      description: Successfully retrieved a paginated list of training programs.
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: "../../components/schemas/PaginatedResponse.yaml"
+              - properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: "../../components/schemas/TrainingProgram.yaml"
+    "401":
+      description: Unauthorized. Authentication is required.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "403":
+      description: Forbidden. You do not have permission to view training programs.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "500":
+      description: Internal server error.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"

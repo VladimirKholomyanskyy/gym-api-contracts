@@ -1,0 +1,7 @@
+name: exerciseId
+in: path
+description: The unique identifier for exercise
+required: true
+schema:
+  type: string
+  format: uuid

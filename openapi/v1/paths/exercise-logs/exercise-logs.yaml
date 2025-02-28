@@ -1,0 +1,87 @@
+post:
+  summary: Log an exercise during a workout session
+  tags:
+    - Exercise logs
+  operationId: logExercise
+  requestBody:
+    description: Log details for the exercise
+    content:
+      application/json:
+        schema:
+          $ref: "../../components/requests/CreateExerciseLogRequest.yaml"
+    required: true
+  responses:
+    "201":
+      description: Exercise logged successfully
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/ExerciseLog.yaml"
+    "400":
+      description: Invalid request body. Ensure required fields are provided and correctly formatted.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "401":
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "403":
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "500":
+      description: Internal Server Error
+
+get:
+  summary: Retrieve a paginated list of exercise logs, filtered by workout session ID or exercise ID
+  tags:
+    - Exercise logs
+  operationId: listExerciseLogs
+  parameters:
+    - $ref: "../../components/parameters/Pagination.yaml#/page"
+    - $ref: "../../components/parameters/Pagination.yaml#/pageSize"
+    - $ref: "../../components/parameters/WorkoutSessionIdQuery.yaml"
+    - $ref: "../../components/parameters/ExerciseIdQuery.yaml"
+  responses:
+    "200":
+      description: Paginated list of exercise logs
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: "../../components/schemas/PaginatedResponse.yaml"
+              - properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: "../../components/schemas/ExerciseLog.yaml"
+    "400":
+      description: Bad request
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "401":
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "403":
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "500":
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"

@@ -1,0 +1,28 @@
+type: object
+required:
+  - exerciseId
+  - workoutSessionId
+  - setNumber
+  - repsCompleted
+  - weightUsed
+properties:
+  workoutSessionId:
+    type: string
+    format: uuid
+    description: Identifier for workout session
+  exerciseId:
+    type: string
+    format: uuid
+    description: Identifier for the exercise being logged.
+  setNumber:
+    type: integer
+    format: int32
+    description: Number of the set being logged.
+  repsCompleted:
+    type: integer
+    format: int32
+    description: Number of repetitions completed in the set.
+  weightUsed:
+    type: integer
+    format: int32
+    description: Weight used for the exercise.

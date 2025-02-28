@@ -1,0 +1,135 @@
+get:
+  summary: Retrieve a training program by ID
+  tags:
+    - Training Programs
+  operationId: getTrainingProgramById
+  parameters:
+    - $ref: "../../components/parameters/TrainingProgramIdPath.yaml"
+  responses:
+    "200":
+      description: Successfully retrieved the training program.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/TrainingProgram.yaml"
+    "400":
+      description: Bad request. The provided training program ID is not a valid UUID.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "401":
+      description: Unauthorized. Authentication is required.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "403":
+      description: Forbidden. You do not have permission to view this training program.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "404":
+      description: Not found. No training program exists with the given ID.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "500":
+      description: Internal server error.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+patch:
+  summary: Update a training program by ID
+  tags:
+    - Training Programs
+  operationId: updateTrainingProgram
+  parameters:
+    - $ref: "../../components/parameters/TrainingProgramIdPath.yaml"
+  requestBody:
+    description: Updated training program details.
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../components/requests/PatchTrainingProgramRequest.yaml"
+  responses:
+    "200":
+      description: Successfully updated the training program.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/TrainingProgram.yaml"
+    "400":
+      description: Bad request. The provided training program ID is not a valid UUID.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "401":
+      description: Unauthorized. Authentication is required.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "403":
+      description: Forbidden. You do not have permission to update this training program.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "404":
+      description: Not found. No training program exists with the given ID.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "500":
+      description: Internal server error.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+delete:
+  summary: Delete a training program by ID
+  tags:
+    - Training Programs
+  operationId: deleteTrainingProgram
+  parameters:
+    - $ref: "../../components/parameters/TrainingProgramIdPath.yaml"
+  responses:
+    "204":
+      description: Successfully deleted the training program.
+    "400":
+      description: Bad request. The provided training program ID is not a valid UUID.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "401":
+      description: Unauthorized. Authentication is required.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "403":
+      description: Forbidden. You do not have permission to delete this training program.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "404":
+      description: Not found. No training program exists with the given ID.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "500":
+      description: Internal server error.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"

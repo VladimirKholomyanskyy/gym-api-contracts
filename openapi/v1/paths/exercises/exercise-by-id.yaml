@@ -1,0 +1,44 @@
+get:
+  summary: Retrieve an exercise by ID
+  tags:
+    - Exercises
+  operationId: getExerciseById
+  parameters:
+    - $ref: "../../components/parameters/ExerciseIdPath.yaml"
+  responses:
+    "200":
+      description: The requested exercise object
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/Exercise.yaml"
+    "400":
+      description: The provided exercise ID is not in a valid UUID format
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "401":
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "403":
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "404":
+      description: Exercise not found
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "500":
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"

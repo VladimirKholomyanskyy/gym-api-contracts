@@ -1,0 +1,26 @@
+get:
+  summary: Get the next scheduled workout for the authenticated user
+  operationId: getNextScheduledWorkout
+  tags:
+    - Scheduled Workouts
+  responses:
+    "200":
+      description: Next scheduled workout found
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/ScheduledWorkout.yaml"
+    "204":
+      description: No upcoming workouts found
+    "401":
+      description: Unauthorized - User authentication required
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "403":
+      description: Forbidden - User does not have access to this resource
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"

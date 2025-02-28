@@ -1,0 +1,44 @@
+post:
+  summary: Mark a workout session as completed
+  tags:
+    - Workout Sessions
+  operationId: completeWorkoutSession
+  parameters:
+    - $ref: "../../components/parameters/WorkoutSessionIdPath.yaml"
+  responses:
+    "200":
+      description: Successfully marked the workout session as completed.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/WorkoutSession.yaml"
+    "400":
+      description: Bad request. The provided workout session ID is not a valid UUID.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "401":
+      description: Unauthorized. Authentication is required.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "403":
+      description: Forbidden. You do not have permission to complete this workout session.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "404":
+      description: Not found. No workout session exists with the given ID.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "500":
+      description: Internal server error.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"

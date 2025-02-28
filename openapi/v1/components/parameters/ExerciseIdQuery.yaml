@@ -1,0 +1,7 @@
+name: exerciseId
+in: query
+description: The unique identifier for exercise log
+required: false
+schema:
+  type: string
+  format: uuid

@@ -1,0 +1,16 @@
+type: object
+properties:
+  exerciseId:
+    type: string
+    format: uuid
+  totalWeightPerDay:
+    type: array
+    items:
+      type: object
+      properties:
+        date:
+          type: string
+          format: date
+        totalWeight:
+          type: number
+          format: float

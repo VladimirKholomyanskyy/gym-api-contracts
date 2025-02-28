@@ -1,0 +1,78 @@
+openapi: 3.0.3
+info:
+  title: Gym Application API
+  version: 1.0.0
+  description: A comprehensive API for managing gym users, workouts, and sessions.
+
+tags:
+  - name: Workouts
+    description: Operations related to workouts
+
+  - name: Exercises
+    description: Operations related to exercises
+
+  - name: Training Programs
+    description: Operations related to training programs
+
+  - name: Workout Sessions
+    description: Operations related to workout sessions
+
+  - name: Exercise Logs
+    description: Operations related to logging progress
+
+  - name: Scheduled Workouts
+    description: Operations related to scheduling workouts
+
+paths:
+  /api/v1/exercises:
+    $ref: "./paths/exercises/exercises.yaml"
+  /api/v1/exercises/{exerciseId}:
+    $ref: "./paths/exercises/exercise-by-id.yaml"
+
+  /api/v1/exercise-logs:
+    $ref: "./paths/exercise-logs/exercise-logs.yaml"
+  /api/v1/exercise-logs/weight-per-day:
+    $ref: "./paths/exercise-logs/exercise-logs-weight-per-day.yaml"
+  /api/v1/exercise-logs/{exerciseLogId}:
+    $ref: "./paths/exercise-logs/exercise-log-by-id.yaml"
+
+  /api/v1/training-programs:
+    $ref: "./paths/training-programs/training-programs.yaml"
+  /api/v1/training-programs/{trainingProgramId}:
+    $ref: "./paths/training-programs/training-program-by-id.yaml"
+
+  /api/v1/workout-sessions:
+    $ref: "./paths/workout-sessions/workout-sessions.yaml"
+  /api/v1/workout-sessions/{workoutSessionId}:
+    $ref: "./paths/workout-sessions/workout-session-by-id.yaml"
+  /api/v1/workout-sessions/{workoutSessionId}/complete:
+    $ref: "./paths/workout-sessions/workout-session-by-id-complete.yaml"
+
+  /api/v1/training-programs/{trainingProgramId}/workouts:
+    $ref: "./paths/workouts/workouts.yaml"
+  /api/v1/training-programs/{trainingProgramId}/workouts/{workoutId}:
+    $ref: "./paths/workouts/workout-by-id.yaml"
+  /api/v1/training-programs/{trainingProgramId}/workouts/{workoutId}/reorder:
+    $ref: "./paths/workouts/workout-by-id-reorder.yaml"
+
+  /api/v1/workout-exercises:
+    $ref: "./paths/workout-exercises/workout-exercises.yaml"
+  /api/v1/workout-exercises/{workoutExerciseId}:
+    $ref: "./paths/workout-exercises/workout-exercise-by-id.yaml"
+  /api/v1/workout-exercises/{workoutExerciseId}/reorder:
+    $ref: "./paths/workout-exercises/workout-exercise-by-id-reorder.yaml"
+
+  /api/v1/scheduled-workouts:
+    $ref: "./paths/scheduled-workouts/scheduled-workouts.yaml"
+  /api/v1/scheduled-workouts/next:
+    $ref: "./paths/scheduled-workouts/scheduled-workouts-next.yaml"
+  /api/v1/scheduled-workouts/{scheduledWorkoutId}:
+    $ref: "./paths/scheduled-workouts/scheduled-workout-by-id.yaml"
+
+components:
+  securitySchemes:
+    bearerAuth:
+      $ref: "./components/securitySchemes/BearerAuth.yaml"
+
+security:
+  - bearerAuth: []

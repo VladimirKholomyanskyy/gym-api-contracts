@@ -1,0 +1,7 @@
+name: exerciseLogId
+in: path
+description: The unique identifier for exercise log
+required: true
+schema:
+  type: string
+  format: uuid

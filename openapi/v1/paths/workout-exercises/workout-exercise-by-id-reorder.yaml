@@ -1,0 +1,56 @@
+post:
+  summary: Reorder a exercise inside a workout
+  operationId: reorderWorkoutExercise
+  tags:
+    - Workout Exercises
+  parameters:
+    - $ref: "../../components/parameters/WorkoutExerciseIdPath.yaml"
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            position:
+              type: integer
+              format: int32
+              minimum: 1
+              description: The new position of the exercise within the workout
+  responses:
+    "200":
+      description: Exercise reordered successfully
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/WorkoutExercise.yaml"
+    "400":
+      description: Invalid request payload (e.g., position out of bounds)
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "401":
+      description: Unauthorized - User authentication required
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "403":
+      description: Forbidden - User does not have permission to modify this training program
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "404":
+      description: Workout exercise not found
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "500":
+      description: Internal server error.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"

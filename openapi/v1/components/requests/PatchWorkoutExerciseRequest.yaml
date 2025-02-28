@@ -1,0 +1,10 @@
+type: object
+properties:
+  sets:
+    type: integer
+    format: int32
+    description: Number of sets for the exercise.
+  reps:
+    type: integer
+    format: int32
+    description: Number of repetitions per set.

@@ -1,0 +1,33 @@
+type: object
+required:
+  - id
+  - workoutId
+  - exerciseId
+  - sets
+  - reps
+  - position
+properties:
+  id:
+    type: string
+    format: uuid
+    description: Unique identifier for the workout exercise.
+  workoutId:
+    type: string
+    format: uuid
+    description: Identifier for the associated workout.
+  exerciseId:
+    type: string
+    format: uuid
+    description: Identifier for the exercise being added.
+  sets:
+    type: integer
+    format: int32
+    description: Number of sets for the exercise.
+  reps:
+    type: integer
+    format: int32
+    description: Number of repetitions per set.
+  position:
+    type: integer
+    format: int32
+    description: Position of the exercise inside a workout

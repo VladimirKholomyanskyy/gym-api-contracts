@@ -1,0 +1,38 @@
+type: object
+required:
+  - id
+  - exerciseId
+  - workoutSessionId
+  - setNumber
+  - repsCompleted
+  - weightUsed
+  - loggedAt
+properties:
+  id:
+    type: string
+    format: uuid
+    description: Unique identifier for the log entry.
+  exerciseId:
+    type: string
+    format: uuid
+    description: Identifier for the exercise being logged.
+  workoutSessionId:
+    type: string
+    format: uuid
+    description: Identifier for workout session
+  setNumber:
+    type: integer
+    format: int32
+    description: Number of the set being logged.
+  repsCompleted:
+    type: integer
+    format: int32
+    description: Number of repetitions completed in the set.
+  weightUsed:
+    type: integer
+    format: int32
+    description: Weight used for the exercise.
+  loggedAt:
+    type: string
+    format: date-time
+    description: Timestamp when the exercise log was created.

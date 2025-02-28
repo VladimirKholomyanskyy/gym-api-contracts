@@ -1,0 +1,17 @@
+type: object
+properties:
+  totalItems:
+    type: integer
+    description: Total number of items available.
+  totalPages:
+    type: integer
+    description: Total number of pages.
+  currentPage:
+    type: integer
+    description: The current page number.
+  pageSize:
+    type: integer
+    description: The number of items per page.
+  items:
+    type: array
+    items: {} # Placeholder, overridden per API response

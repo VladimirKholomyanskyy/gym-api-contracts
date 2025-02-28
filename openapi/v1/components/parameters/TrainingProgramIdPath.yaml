@@ -1,0 +1,7 @@
+name: trainingProgramId
+in: path
+description: The unique identifier for training program
+required: true
+schema:
+  type: string
+  format: uuid

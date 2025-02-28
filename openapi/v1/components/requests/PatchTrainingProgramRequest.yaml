@@ -1,0 +1,8 @@
+type: object
+properties:
+  name:
+    type: string
+    description: Name of the training program.
+  description:
+    type: string
+    description: Description of the training program.

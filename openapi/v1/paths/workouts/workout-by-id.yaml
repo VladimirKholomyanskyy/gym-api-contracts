@@ -1,0 +1,140 @@
+patch:
+  summary: Update a workout in a training program
+  tags:
+    - Workouts
+  operationId: updateWorkout
+  parameters:
+    - $ref: "../../components/parameters/TrainingProgramIdPath.yaml"
+    - $ref: "../../components/parameters/WorkoutIdPath.yaml"
+  requestBody:
+    description: Details to update the workout.
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../components/requests/PatchWorkoutRequest.yaml"
+  responses:
+    "200":
+      description: Workout updated successfully.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/Workout.yaml"
+    "400":
+      description: Bad request. Invalid workout update details.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "401":
+      description: Unauthorized. Authentication is required.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "403":
+      description: Forbidden. You do not have permission to modify this workout.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "404":
+      description: Not found. The specified workout or training program does not exist.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "500":
+      description: Internal server error.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+
+get:
+  summary: Retrieve a workout in a training program
+  tags:
+    - Workouts
+  operationId: getWorkoutForProgram
+  parameters:
+    - $ref: "../../components/parameters/TrainingProgramIdPath.yaml"
+    - $ref: "../../components/parameters/WorkoutIdPath.yaml"
+  responses:
+    "200":
+      description: Successfully retrieved the workout details.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/Workout.yaml"
+    "400":
+      description: Bad request. Invalid workout ID format.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "401":
+      description: Unauthorized. Authentication is required.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "403":
+      description: Forbidden. You do not have permission to access this workout.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "404":
+      description: Not found. The specified workout or training program does not exist.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "500":
+      description: Internal server error.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+
+delete:
+  summary: Delete a workout from a training program
+  tags:
+    - Workouts
+  operationId: deleteWorkout
+  parameters:
+    - $ref: "../../components/parameters/TrainingProgramIdPath.yaml"
+    - $ref: "../../components/parameters/WorkoutIdPath.yaml"
+  responses:
+    "204":
+      description: Workout deleted successfully.
+    "400":
+      description: Bad request. Invalid workout ID format.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "401":
+      description: Unauthorized. Authentication is required.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "403":
+      description: Forbidden. You do not have permission to delete this workout.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "404":
+      description: Not found. The specified workout or training program does not exist.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "500":
+      description: Internal server error.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"

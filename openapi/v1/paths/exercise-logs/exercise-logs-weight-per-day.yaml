@@ -1,0 +1,52 @@
+get:
+  summary: Calculate total weight lifted per day for a specific exercise
+  tags:
+    - Exercise logs
+  operationId: getWeightPerDay
+  parameters:
+    - $ref: "../../components/parameters/ExerciseIdPath.yaml"
+    - name: startDate
+      in: query
+      required: false
+      description: Filter logs from this date (YYYY-MM-DD)
+      schema:
+        type: string
+        format: date
+    - name: endDate
+      in: query
+      required: false
+      description: Filter logs up to this date (YYYY-MM-DD)
+      schema:
+        type: string
+        format: date
+  responses:
+    "200":
+      description: A summary of total weight lifted per day, grouped by date.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/GetWeightPerDay.yaml"
+    "400":
+      description: Bad request
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "401":
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "403":
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "500":
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"

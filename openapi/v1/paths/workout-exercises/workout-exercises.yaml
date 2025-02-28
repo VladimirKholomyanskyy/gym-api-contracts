@@ -1,0 +1,102 @@
+post:
+  summary: Add an exercise to a workout
+  tags:
+    - Workout Exercises
+  operationId: addWorkoutExercise
+  requestBody:
+    description: Details of the exercise to be added to a workout.
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../components/requests/CreateWorkoutExerciseRequest.yaml"
+  responses:
+    "201":
+      description: Workout exercise created successfully.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/WorkoutExercise.yaml"
+    "400":
+      description: Bad request. Invalid exercise details provided.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "401":
+      description: Unauthorized. Authentication is required.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "403":
+      description: Forbidden. You do not have permission to modify this workout.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "404":
+      description: Not found. The specified workout does not exist.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "500":
+      description: Internal server error.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+
+get:
+  summary: List all exercises in a workout
+  tags:
+    - Workout Exercises
+  operationId: listWorkoutExercises
+  parameters:
+    - $ref: "../../components/parameters/Pagination.yaml#/page"
+    - $ref: "../../components/parameters/Pagination.yaml#/pageSize"
+    - $ref: "../../components/parameters/WorkoutIdPath.yaml"
+  responses:
+    "200":
+      description: Successfully retrieved the list of exercises in the workout.
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: "../../components/schemas/PaginatedResponse.yaml"
+              - properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: "../../components/schemas/WorkoutExercise.yaml"
+    "400":
+      description: Bad request. Invalid pagination parameters.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "401":
+      description: Unauthorized. Authentication is required.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "403":
+      description: Forbidden. You do not have permission to view this workout's exercises.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "404":
+      description: Not found. The specified workout does not exist.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "500":
+      description: Internal server error.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"

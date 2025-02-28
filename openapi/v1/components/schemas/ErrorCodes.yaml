@@ -1,0 +1,18 @@
+type: string
+enum:
+  - INVALID_REQUEST
+  - UNAUTHORIZED
+  - FORBIDDEN
+  - NOT_FOUND
+  - INTERNAL_SERVER_ERROR
+  - WORKOUT_ALREADY_SCHEDULED
+  - INVALID_DATE_RANGE
+description: |
+  Standard error codes returned by the API.
+  - INVALID_REQUEST: The request is malformed or contains invalid data.
+  - UNAUTHORIZED: Authentication required.
+  - FORBIDDEN: User does not have permission.
+  - NOT_FOUND: The requested resource does not exist.
+  - INTERNAL_SERVER_ERROR: Unexpected server error.
+  - WORKOUT_ALREADY_SCHEDULED: The workout is already scheduled for this time.
+  - INVALID_DATE_RANGE: The provided startDate and endDate are invalid.

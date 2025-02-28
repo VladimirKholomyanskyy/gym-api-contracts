@@ -1,0 +1,44 @@
+get:
+  summary: Retrieve details of a specific exercise log
+  tags:
+    - Exercise logs
+  operationId: getExerciseLog
+  parameters:
+    - $ref: "../../components/parameters/ExerciseLogIdPath.yaml"
+  responses:
+    "200":
+      description: Details of the exercise log
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/ExerciseLog.yaml"
+    "400":
+      description: Invalid exercise log ID format. Must be a valid UUID.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "404":
+      description: Exercise log not found
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "401":
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "403":
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"
+    "500":
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"

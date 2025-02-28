@@ -1,0 +1,8 @@
+type: object
+required:
+  - workoutId
+properties:
+  workoutId:
+    type: string
+    format: uuid
+    description: Identifier for the workout to start.
