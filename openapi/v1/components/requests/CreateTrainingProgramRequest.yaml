@@ -8,3 +8,4 @@ properties:
   description:
     type: string
     description: Description of the training program.
+    nullable: true

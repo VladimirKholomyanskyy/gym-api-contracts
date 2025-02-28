@@ -3,8 +3,10 @@ properties:
   sets:
     type: integer
     format: int32
+    nullable: true
     description: Number of sets for the exercise.
   reps:
     type: integer
     format: int32
+    nullable: true
     description: Number of repetitions per set.

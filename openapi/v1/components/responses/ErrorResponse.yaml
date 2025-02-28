@@ -2,8 +2,6 @@ type: object
 properties:
   errorCode:
     $ref: "../schemas/ErrorCodes.yaml"
-  status:
-    type: integer
   message:
     type: string
   details:
@@ -18,5 +16,4 @@ properties:
 
 required:
   - errorCode
-  - status
   - message

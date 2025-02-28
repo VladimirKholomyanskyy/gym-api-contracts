@@ -3,3 +3,9 @@ properties:
   name:
     type: string
     description: Name of the workout.
+type: object
+properties:
+  name:
+    type: string
+    nullable: true
+    description: Name of the workout.

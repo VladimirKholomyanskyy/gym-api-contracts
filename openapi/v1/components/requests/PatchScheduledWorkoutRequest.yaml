@@ -3,5 +3,7 @@ properties:
   date:
     type: string
     format: date
+    nullable: true
   notes:
     type: string
+    nullable: true

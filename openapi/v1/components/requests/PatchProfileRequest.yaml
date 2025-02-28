@@ -2,17 +2,22 @@ type: object
 properties:
   sex:
     $ref: "../schemas/Sex.yaml"
+    nullable: true
   weight:
     type: number
     format: double
+    nullable: true
     description: Users weight.
   height:
     type: number
     format: double
+    nullable: true
     description: Users height.
   birthday:
     type: string
     format: date
+    nullable: true
   avatarUrl:
     type: string
+    nullable: true
     description: Avatar image url

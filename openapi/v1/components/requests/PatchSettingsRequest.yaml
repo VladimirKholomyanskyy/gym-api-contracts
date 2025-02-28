@@ -2,15 +2,19 @@ type: object
 properties:
   language:
     type: string
+    nullable: true
     description: User's preferred language (ISO 639-1 format).
     example: "en"
   timezone:
     type: string
+    nullable: true
     description: User's timezone (IANA format, e.g., 'America/New_York').
     example: "America/New_York"
   measurementUnits:
     $ref: "../schemas/MeasurementUnits.yaml"
+    nullable: true
   notificationsEnabled:
     type: boolean
+    nullable: true
     description: Whether the user has enabled notifications.
     example: true

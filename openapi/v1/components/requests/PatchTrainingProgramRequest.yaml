@@ -2,7 +2,9 @@ type: object
 properties:
   name:
     type: string
+    nullable: true
     description: Name of the training program.
   description:
     type: string
+    nullable: true
     description: Description of the training program.

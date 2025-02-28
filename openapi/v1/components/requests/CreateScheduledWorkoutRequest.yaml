@@ -11,3 +11,4 @@ properties:
     format: date
   notes:
     type: string
+    nullable: true
