@@ -14,3 +14,6 @@ properties:
         totalWeight:
           type: number
           format: double
+required:
+  - exerciseId
+  - totalWeightPerDay

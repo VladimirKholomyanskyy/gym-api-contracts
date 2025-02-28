@@ -1,8 +1,4 @@
 type: object
-required:
-  - id
-  - name
-  - primaryMuscle
 properties:
   id:
     type: string
@@ -25,3 +21,9 @@ properties:
   description:
     type: string
     description: Detailed description of the exercise.
+required:
+  - id
+  - name
+  - primaryMuscle
+  - equipment
+  - description
