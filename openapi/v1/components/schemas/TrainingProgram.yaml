@@ -2,6 +2,7 @@ type: object
 required:
   - id
   - name
+  - description
 properties:
   id:
     type: string
@@ -13,4 +14,3 @@ properties:
   description:
     type: string
     description: Description of the training program.
-    nullable: true

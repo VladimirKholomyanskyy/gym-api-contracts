@@ -3,18 +3,24 @@ enum:
   - INVALID_REQUEST
   - UNAUTHORIZED
   - FORBIDDEN
-  - NOT_FOUND
+  - RESOURCE_NOT_FOUND
   - INTERNAL_SERVER_ERROR
   - WORKOUT_ALREADY_SCHEDULED
   - INVALID_DATE_RANGE
   - INVALID_DATE_FORMAT
+  - INVALID_PAGE_NUMBER
+  - INVALID_PAGE_SIZE
+  - INVALID_ID
 description: |
   Standard error codes returned by the API.
   - INVALID_REQUEST: The request is malformed or contains invalid data.
   - UNAUTHORIZED: Authentication required.
   - FORBIDDEN: User does not have permission.
-  - NOT_FOUND: The requested resource does not exist.
+  - RESOURCE_NOT_FOUND: The requested resource does not exist.
   - INTERNAL_SERVER_ERROR: Unexpected server error.
   - WORKOUT_ALREADY_SCHEDULED: The workout is already scheduled for this time.
   - INVALID_DATE_RANGE: The provided startDate and endDate are invalid.
   - INVALID_DATE_FORMAT: The provided date have wrong format, required format is "YYYY-MM-DD"
+  - INVALID_PAGE_NUMBER: The provided page number is invalid
+  - INVALID_PAGE_SIZE: The provided page size is invalid
+  - INVALID_ID: The provided resource id is invalid
