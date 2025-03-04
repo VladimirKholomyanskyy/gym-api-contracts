@@ -2,7 +2,7 @@ post:
   summary: Reorder a workout inside a training program
   operationId: reorderWorkout
   tags:
-    - Training Programs
+    - Workouts
   parameters:
     - $ref: "../../components/parameters/TrainingProgramIdPath.yaml"
     - $ref: "../../components/parameters/WorkoutIdPath.yaml"
