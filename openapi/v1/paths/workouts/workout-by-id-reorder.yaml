@@ -21,10 +21,6 @@ post:
   responses:
     "200":
       description: Workout reordered successfully
-      content:
-        application/json:
-          schema:
-            $ref: "../../components/schemas/Workout.yaml"
     "400":
       description: Invalid request payload (e.g., position out of bounds)
       content:
