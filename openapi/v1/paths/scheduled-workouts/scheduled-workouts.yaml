@@ -59,15 +59,21 @@ get:
       schema:
         type: string
         format: date
+    - $ref: "../../components/parameters/Pagination.yaml#/page"
+    - $ref: "../../components/parameters/Pagination.yaml#/pageSize"
   responses:
     "200":
       description: List of scheduled workouts within the specified date range
       content:
         application/json:
           schema:
-            type: array
-            items:
-              $ref: "../../components/schemas/ScheduledWorkout.yaml"
+            allOf:
+              - $ref: "../../components/schemas/PaginatedResponse.yaml"
+              - properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: "../../components/schemas/ScheduledWorkout.yaml"
     "400":
       description: Invalid date format or range
       content:
