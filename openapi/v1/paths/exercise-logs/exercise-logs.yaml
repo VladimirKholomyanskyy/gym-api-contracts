@@ -44,10 +44,10 @@ get:
     - Exercise logs
   operationId: listExerciseLogs
   parameters:
-    - $ref: "../../components/parameters/Pagination.yaml#/page"
-    - $ref: "../../components/parameters/Pagination.yaml#/pageSize"
     - $ref: "../../components/parameters/WorkoutSessionIdQuery.yaml"
     - $ref: "../../components/parameters/ExerciseIdQuery.yaml"
+    - $ref: "../../components/parameters/Pagination.yaml#/page"
+    - $ref: "../../components/parameters/Pagination.yaml#/pageSize"
   responses:
     "200":
       description: Paginated list of exercise logs
