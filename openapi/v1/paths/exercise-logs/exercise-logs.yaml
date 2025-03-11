@@ -1,7 +1,7 @@
 post:
   summary: Log an exercise during a workout session
   tags:
-    - Exercise logs
+    - Exercise Logs
   operationId: logExercise
   requestBody:
     description: Log details for the exercise
@@ -41,7 +41,7 @@ post:
 get:
   summary: Retrieve a paginated list of exercise logs, filtered by workout session ID or exercise ID
   tags:
-    - Exercise logs
+    - Exercise Logs
   operationId: listExerciseLogs
   parameters:
     - $ref: "../../components/parameters/WorkoutSessionIdQuery.yaml"

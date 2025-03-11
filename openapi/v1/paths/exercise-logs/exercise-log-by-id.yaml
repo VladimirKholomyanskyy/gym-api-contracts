@@ -1,7 +1,7 @@
 get:
   summary: Retrieve details of a specific exercise log
   tags:
-    - Exercise logs
+    - Exercise Logs
   operationId: getExerciseLog
   parameters:
     - $ref: "../../components/parameters/ExerciseLogIdPath.yaml"
