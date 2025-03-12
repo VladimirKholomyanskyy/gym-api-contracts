@@ -17,12 +17,18 @@ properties:
   setNumber:
     type: integer
     format: int32
+    minimum: 1
+    maximum: 100
     description: Number of the set being logged.
   repsCompleted:
     type: integer
     format: int32
+    minimum: 1
+    maximum: 100
     description: Number of repetitions completed in the set.
   weightUsed:
     type: integer
-    format: int32
+    format: double
+    minimum: 0.0
+    maximum: 1000.0
     description: Weight used for the exercise.

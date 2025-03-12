@@ -1,7 +1,7 @@
 get:
   summary: Calculate total weight lifted per day for a specific exercise
   tags:
-    - Exercise logs
+    - Exercise Logs
   operationId: getWeightPerDay
   parameters:
     - $ref: "../../components/parameters/ExerciseIdPath.yaml"

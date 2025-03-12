@@ -4,6 +4,8 @@ required:
 properties:
   name:
     type: string
+    minLength: 3
+    maxLength: 50
     description: Name of the training program.
   description:
     type: string

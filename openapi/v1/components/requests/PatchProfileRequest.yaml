@@ -5,11 +5,15 @@ properties:
   weight:
     type: number
     format: double
+    minimum: 1.0
+    maximum: 500.0
     nullable: true
     description: Users weight.
   height:
     type: number
     format: double
+    minimum: 1.0
+    maximum: 300.0
     nullable: true
     description: Users height.
   birthday:
