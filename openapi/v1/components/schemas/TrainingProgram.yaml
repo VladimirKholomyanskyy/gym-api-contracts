@@ -1,6 +1,7 @@
 type: object
 required:
   - id
+  - profileId
   - name
   - description
 properties:
@@ -8,6 +9,10 @@ properties:
     type: string
     format: uuid
     description: Unique identifier for the training program.
+  profileId:
+    type: string
+    format: uuid
+    description: Unique identifier for the profile.
   name:
     type: string
     description: Name of the training program.

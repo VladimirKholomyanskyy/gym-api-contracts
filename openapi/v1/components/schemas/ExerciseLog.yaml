@@ -1,6 +1,7 @@
 type: object
 required:
   - id
+  - profileId
   - exerciseId
   - workoutSessionId
   - setNumber
@@ -12,14 +13,18 @@ properties:
     type: string
     format: uuid
     description: Unique identifier for the log entry.
+  profileId:
+    type: string
+    format: uuid
+    description: Identifier for profile
+  workoutSessionId:
+    type: string
+    format: uuid
+    description: Identifier for workout sessionv
   exerciseId:
     type: string
     format: uuid
     description: Identifier for the exercise being logged.
-  workoutSessionId:
-    type: string
-    format: uuid
-    description: Identifier for workout session
   setNumber:
     type: integer
     format: int32

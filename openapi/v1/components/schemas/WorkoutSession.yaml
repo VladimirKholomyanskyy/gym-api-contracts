@@ -1,6 +1,8 @@
 type: object
 required:
   - id
+  - profileId
+  - workoutId
   - startedAt
   - workoutSnapshot
 properties:
@@ -8,6 +10,14 @@ properties:
     type: string
     format: uuid
     description: Unique identifier for the workout session.
+  profileId:
+    type: string
+    format: uuid
+    description: Unique identifier for the profile.
+  workoutId:
+    type: string
+    format: uuid
+    description: Unique identifier for the workout.
   startedAt:
     type: string
     format: date-time

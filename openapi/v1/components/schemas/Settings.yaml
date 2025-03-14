@@ -1,6 +1,7 @@
 type: object
 required:
   - id
+  - profileId
   - language
   - timezone
   - measurementUnits
@@ -11,6 +12,10 @@ properties:
     format: uuid
     description: Unique identifier for the settings record.
     example: "550e8400-e29b-41d4-a716-446655440000"
+  profileId:
+    type: string
+    format: uuid
+    description: Unique identifier for the profile.
   language:
     type: string
     description: User's preferred language (ISO 639-1 format).

@@ -3,6 +3,9 @@ properties:
   id:
     type: string
     format: uuid
+  profileId:
+    type: string
+    format: uuid
   workoutId:
     type: string
     format: uuid
@@ -13,6 +16,7 @@ properties:
     type: string
 required:
   - id
+  - profileId
   - workoutId
   - date
   - notes

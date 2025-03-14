@@ -1,6 +1,7 @@
 type: object
 required:
   - id
+  - trainingProgramId
   - name
   - position
 properties:
@@ -8,6 +9,10 @@ properties:
     type: string
     format: uuid
     description: Unique identifier for the workout.
+  trainingProgramId:
+    type: string
+    format: uuid
+    description: Unique identifier for the training program.
   name:
     type: string
     description: Name of the workout.
