@@ -33,6 +33,9 @@ tags:
     description: Operations related to scheduling workouts
 
 paths:
+  /api/v1/auth/config:
+    $ref: "./paths/auth/config.yaml"
+
   /api/v1/profiles/me:
     $ref: "./paths/user/profiles.yaml"
   /api/v1/profiles/me/settings:
