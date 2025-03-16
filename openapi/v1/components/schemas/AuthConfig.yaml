@@ -1,0 +1,17 @@
+type: object
+properties:
+  userPoolId:
+    type: string
+    description: AWS Cognito User Pool ID
+  userPoolRegion:
+    type: string
+    description: AWS Region for the Cognito User Pool
+  userPoolClientId:
+    type: string
+    description: AWS Cognito App Client ID
+  identityPoolId:
+    type: string
+    description: AWS Cognito Identity Pool ID
+  authenticationFlowType:
+    type: string
+    description: Authentication flow type (e.g., USER_SRP_AUTH)

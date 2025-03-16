@@ -5,6 +5,9 @@ info:
   description: A comprehensive API for managing gym users, workouts, and sessions.
 
 tags:
+  - name: Auth
+    description: Operations related to authentication configuration
+
   - name: Profile
     description: Operations related to user profile
 

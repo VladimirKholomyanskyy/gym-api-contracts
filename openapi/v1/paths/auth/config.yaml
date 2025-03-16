@@ -1,0 +1,19 @@
+get:
+  summary: Get authentication configuration
+  operationId: getAuthConfig
+  tags:
+    - Auth
+  security: [] # No authentication required for this endpoint
+  responses:
+    "200":
+      description: Authentication configuration
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/AuthConfig.yaml"
+    "500":
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/responses/ErrorResponse.yaml"

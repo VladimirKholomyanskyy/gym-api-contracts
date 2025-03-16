@@ -1,3 +1,4 @@
 type: http
 scheme: bearer
 bearerFormat: JWT
+description: "JWT token issued by AWS Cognito"
