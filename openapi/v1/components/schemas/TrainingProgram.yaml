@@ -19,3 +19,11 @@ properties:
   description:
     type: string
     description: Description of the training program.
+  createdAt:
+    type: string
+    format: date-time
+    description: Timestamp when the training program created.
+  updatedAt:
+    type: string
+    format: date-time
+    description: Timestamp when the training program updated.

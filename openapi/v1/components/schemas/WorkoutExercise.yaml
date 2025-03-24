@@ -31,3 +31,11 @@ properties:
     type: integer
     format: int32
     description: Position of the exercise inside a workout
+  createdAt:
+    type: string
+    format: date-time
+    description: Timestamp when the workout exercise created.
+  updatedAt:
+    type: string
+    format: date-time
+    description: Timestamp when the workout exercise updated.
