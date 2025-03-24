@@ -4,6 +4,8 @@ required:
   - trainingProgramId
   - name
   - position
+  - createdAt
+  - updatedAt
 properties:
   id:
     type: string

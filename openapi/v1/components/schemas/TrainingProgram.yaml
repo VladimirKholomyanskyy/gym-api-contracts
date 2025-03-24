@@ -4,6 +4,8 @@ required:
   - profileId
   - name
   - description
+  - createdAt
+  - updatedAt
 properties:
   id:
     type: string

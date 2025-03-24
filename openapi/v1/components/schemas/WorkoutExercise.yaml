@@ -6,6 +6,8 @@ required:
   - sets
   - reps
   - position
+  - createdAt
+  - updatedAt
 properties:
   id:
     type: string
